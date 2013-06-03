@@ -1,0 +1,11 @@
+#!/bin/bash
+
+OS=$(uname -a)
+CALL_PATH=$(pwd)
+
+APPDIR="$(dirname "$0")/.application"
+cd "$APPDIR"
+
+java -jar JSelect.jar
+
+
