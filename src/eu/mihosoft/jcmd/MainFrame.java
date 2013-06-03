@@ -36,6 +36,8 @@ public class MainFrame extends javax.swing.JFrame {
         initComponents();
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -59,9 +61,10 @@ public class MainFrame extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("JCMD (2013 by mihosoft.eu)");
+        setTitle("JSelect (2013 by mihosoft.eu)");
 
         jLabel1.setText("JDK-Home:");
 
@@ -128,7 +131,16 @@ public class MainFrame extends javax.swing.JFrame {
 
             jMenuBar1.add(jMenu1);
 
-            jMenu2.setText("Edit");
+            jMenu2.setText("Help");
+
+            jMenuItem3.setText("About");
+            jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jMenuItem3ActionPerformed(evt);
+                }
+            });
+            jMenu2.add(jMenuItem3);
+
             jMenuBar1.add(jMenu2);
 
             setJMenuBar(jMenuBar1);
@@ -148,13 +160,10 @@ public class MainFrame extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jdkPathField, javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(cdPathField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 633, Short.MAX_VALUE))
+                            .addGap(28, 28, 28)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(28, 28, 28)
-                                    .addComponent(jButton3))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addGap(28, 28, 28)
-                                    .addComponent(jButton2)))
+                                .addComponent(jButton3)
+                                .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING))
                             .addContainerGap())
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addComponent(jButton1)
@@ -412,6 +421,13 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cdPathFieldActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        //
+        AboutDialog about = new AboutDialog();
+        about.setVisible(true);
+        about.setLocationRelativeTo(this);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -459,6 +475,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JTextField jdkPathField;
     // End of variables declaration//GEN-END:variables
 }
