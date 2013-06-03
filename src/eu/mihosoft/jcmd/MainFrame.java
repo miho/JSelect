@@ -36,8 +36,14 @@ public class MainFrame extends javax.swing.JFrame {
         initComponents();
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+
         setLocationRelativeTo(null);
+        String javaHome = System.getenv("JAVA_HOME");
+        
+        if (javaHome != null) {
+            jdkPathField.setText(javaHome);
+        }
+        cdPathField.setText(System.getProperty("user.home"));
     }
 
     /**
@@ -195,7 +201,7 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jdkPathFieldActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+
         openTerminal();
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -219,10 +225,10 @@ public class MainFrame extends javax.swing.JFrame {
                 + ";java -version;cd " + cdPathField.getText() + "; /bin/bash"
             };
         }
-        
+
         try {
             //
-            Process builder = new ProcessBuilder((String[])args).start();
+            Process builder = new ProcessBuilder((String[]) args).start();
 
         } catch (IOException ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
@@ -231,7 +237,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-        chooseJDK(new File("C:\\"));
+        chooseJDK(new File(jdkPathField.getText()));
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private File chooseJDK(File dir) {
