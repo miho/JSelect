@@ -220,8 +220,8 @@ public class MainFrame extends javax.swing.JFrame {
         } else {
             args = new String[]{
                 "xterm", "-e",
-                "JAVA_HOME=" + jdkPathField.getText()
-                + ";PATH=" + jdkPathField.getText() + "/bin:$PATH"
+                "export JAVA_HOME=" + jdkPathField.getText()
+                + ";export PATH=" + jdkPathField.getText() + "/bin:$PATH"
                 + ";java -version;cd " + cdPathField.getText() + "; /bin/bash"
             };
         }
